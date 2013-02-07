@@ -4,19 +4,18 @@ import unittest
 import random
 
 def insertSort(l):
-    tpl = l
-    for i in range(1,len(tpl)):
-        tp = tpl[i]
+    for i in range(1,len(l)):
+        tp = l[i]
         for j in range(i-1,-1,-1):
-            if tpl[j]>tp:
-                tpl[j+1] = tpl[j]
+            if l[j]>tp:
+                l[j+1] = l[j]
             else:
-                tpl[j+1] = tp
+                l[j+1] = tp
                 break
         else:
             if j == 0:
-                tpl[0] = tp
-    return tpl
+                l[0] = tp
+    return l
 
 class Test(unittest.TestCase):
     def test(self):
@@ -26,7 +25,8 @@ class Test(unittest.TestCase):
             j_len = random.randint(1,1000)
             for j in range(0,j_len):
                 l.append(random.randint(1,10000))
-            insertl = insertSort(l)
+            insertl = l
+            insertSort(insertl)
             l.sort()
             self.assertEqual(insertl,l)
 

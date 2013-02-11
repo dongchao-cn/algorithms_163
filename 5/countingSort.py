@@ -12,7 +12,7 @@ def countingSort(A,start,end):
     for i in range(1,len(C)):
         C1[i] = C1[i-1] + C[i]
     B = [0] * len(A)
-    for each in A:
+    for each in A[::-1]:
         B[C1[each-start]-start] = each
         C1[each-start] -= 1
     return B

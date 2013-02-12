@@ -11,14 +11,10 @@ def partition(A,p,q):
         if A[j] >= x:
             j += 1
         else:
-            tp = A[j]
-            A[j] = A[i+1]
-            A[i+1] = tp
+            A[j], A[i+1] = A[i+1], A[j]
             i += 1
             j += 1
-    tp = A[i]
-    A[i] = x
-    A[p] = tp
+    A[p], A[i] = A[i], A[p]
     return i
 
 def quickSort(A,p,q):

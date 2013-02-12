@@ -4,12 +4,9 @@ import unittest
 import random
 
 def partition(A,p,q):
-
     # randomized
     randpos = random.randint(p,q)
-    tp = A[randpos]
-    A[randpos] = A[p]
-    A[p] = tp
+    A[p], A[randpos] = A[randpos], A[p]
 
     x = A[p]
     i = p
@@ -18,14 +15,10 @@ def partition(A,p,q):
         if A[j] >= x:
             j += 1
         else:
-            tp = A[j]
-            A[j] = A[i+1]
-            A[i+1] = tp
+            A[j], A[i+1] = A[i+1], A[j]
             i += 1
             j += 1
-    tp = A[i]
-    A[i] = x
-    A[p] = tp
+    A[i], A[p] = A[p], A[i]
     return i
 
 def quickSort(A,p,q):
